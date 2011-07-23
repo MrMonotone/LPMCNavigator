@@ -38,6 +38,7 @@ public class PlayerCompassListener  extends PlayerListener{
         String playerstoredlocationy = Integer.toString(playerstoredlocationyint);
         String playerstoredlocationz = Integer.toString(playerstoredlocationzint);
         
+        if (helditem != null){
         if (helditem.getTypeId() == 345){
             
             if(action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK){
@@ -83,6 +84,7 @@ public class PlayerCompassListener  extends PlayerListener{
                        //layer.sendMessage(locationstoredy);
                        //layer.sendMessage(locationstoredz);
             }
+        }
             else{
                 return;
             }
