@@ -1,0 +1,8 @@
+name: LPMCNavigator
+main: me.Mentioum.LPMCDiscovery.LPMCDiscovery
+version: 0.1
+authors: [Mentioum]
+description: >
+             LPMCNavigator- Helping you find your way back to the places you have been before.
+commands:
+   
