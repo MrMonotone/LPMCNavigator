@@ -53,15 +53,6 @@ public class PlayerCompassListener  extends PlayerListener{
 
                     player.setCompassTarget(playerstoredlocation);
 
-                    entry.setValue("x", String.valueOf(playerstoredlocationx) );
-                    entry.setValue("y", String.valueOf(playerstoredlocationy) );
-                    entry.setValue("z", String.valueOf(playerstoredlocationz) );
-                    entry.setValue("world", playerworldlocation);
-
-                    plugin.database.addIndex(entry.getKey(), entry);
-
-                    plugin.database.update();
-
                     String locationstored = ChatColor.GREEN + "Compass tuned to your current location in " + entry.getValue("world") + ":";
                     String locationstoredx = ChatColor.BLUE + "X: " + ChatColor.WHITE + playerstoredlocationx;
                     String locationstoredy = ChatColor.BLUE + "Y: " + ChatColor.WHITE + playerstoredlocationy;
@@ -76,8 +67,7 @@ public class PlayerCompassListener  extends PlayerListener{
             
                 
                 if(action == Action.LEFT_CLICK_AIR || action == Action.LEFT_CLICK_BLOCK){
-                    
-                    Arguments getentry = plugin.database.getArguments(player.getDisplayName());
+               
                     player.setCompassTarget(player.getWorld().getSpawnLocation());
                     player.sendMessage(ChatColor.GREEN + "Compass Pointed to " + playerworldlocation + "'s spawn: ");
                 }

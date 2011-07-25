@@ -1,8 +1,4 @@
 package me.Mentioum.LPMCNavigator;
-import com.mini.Mini;
-import java.io.File;
-import java.util.Map;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -21,10 +17,6 @@ public class LPMCNavigator extends JavaPlugin {
     public static LPMCNavigator plugin;
     public static final Logger logger = Logger.getLogger("Minecraft");
     private PlayerCompassListener playercompasslistener= new PlayerCompassListener(this); //Defines Compass Listener
-    public static String mainDirectory = "plugins/LPMCNavigator";//Set main directory for easy reference
-    private PluginManager manager;
-    private File directory;
-    public Mini database;
     
     private Set<Player> navigatorList = new HashSet<Player>();
     
@@ -44,15 +36,17 @@ public class LPMCNavigator extends JavaPlugin {
     
     @Override
     public void onEnable() {
+    PluginManager pm = this.getServer().getPluginManager();
+    pm.registerEvent(Type.PLAYER_INTERACT, playercompasslistener, Priority.Normal, this);
     
-    PluginManager pm = getServer().getPluginManager();
+    
    
     PluginDescriptionFile pdfFile = this.getDescription();
     LPMCNavigator.logger.info( pdfFile.getName() + " V" + pdfFile.getVersion() + " by " + pdfFile.getAuthors() + " is enabled");
-    directory = getDataFolder();
-    database = new Mini(directory.getPath(), "playercompasslocations.mini");
     
-    pm.registerEvent(Type.PLAYER_INTERACT, this.playercompasslistener, Priority.Normal, this);
+    
+    
+    
     
     
     
