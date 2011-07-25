@@ -1,8 +1,11 @@
 name: LPMCNavigator
-main: me.Mentioum.LPMCDiscovery.LPMCDiscovery
-version: 0.1
+main: me.Mentioum.LPMCNavigator.LPMCNavigator
+version: 0.2
 authors: [Mentioum]
 description: >
              LPMCNavigator- Helping you find your way back to the places you have been before.
 commands:
-   
+   navigator:
+     description: Toggles compass navigation on and off.
+     usage: /<command>
+     aliases: [nav, navi, navigation, nv]
