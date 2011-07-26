@@ -46,40 +46,61 @@ public class LPMCNavigator extends JavaPlugin {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    getCommand("navigator").setExecutor(new CommandExecutor() {
-           
-        
-        
-        public boolean onCommand(CommandSender cs, Command cmnd, String string, String[] args) {
-                if (args.length > 0){
-                    return false;
-                }
-                
-                if (cs instanceof Player){
+    getCommand("navigate").setExecutor(new CommandExecutor() {
+
+            @Override
+            public boolean onCommand(CommandSender cs, Command cmnd, String string, String[] args) {
+                String[] split = args;
                     
-                    Player player = (Player)cs;
-                    toggleCompassState(player, !hasCompassNav(player));
+//                **********
+//                /navigate
+//                **********
+                               
+                    if (split.length == 0){
+                
+                        if (cs instanceof Player){
+                    
+                        Player player = (Player)cs;
+                    
+                        toggleCompassState(player, !hasCompassNav(player));
                             
                     
-                } else {
-                    cs.sendMessage(ChatColor.RED + "Command must be performed as a player!");
-                }
-            
-                
-                return true;
-                
+                        } else {
+                        cs.sendMessage(ChatColor.RED + "Command must be performed as a player!");
+                        }
+                      
+                        
+                    }
+                    
+                    
+//                **********
+//                /navigate test
+//                **********                    
+                    
+                    if (split.length == 1 && split[0].equalsIgnoreCase("test")){
+                        
+                       cs.sendMessage("This is a test");
+                        
+                    }
+                    
+                    
+            return true;
             }
-        });
+    });
+        
+        
     
-    }
+    
+    
+    
+    
+    
+    
+    
+    } //OnEnable End
 
+    
+    
     
     public boolean hasCompassNav(Player player){
         return navigatorList.contains(player);

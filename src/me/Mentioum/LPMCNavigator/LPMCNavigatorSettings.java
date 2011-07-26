@@ -8,7 +8,7 @@ public class LPMCNavigatorSettings {
     public Configuration config;
     
     
-    public Boolean allowWaypoints;
+    public Boolean locatePlayers;
 
     //public Boolean configBoolean;
     //public String configString;
